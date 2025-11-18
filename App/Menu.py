@@ -1,6 +1,7 @@
 import csv
 from AddMovie import main as add_movie
 from DisplayMovieList import display_movies
+from SearchMovie import search_movie 
 def validate_user(username, password):
     try:
         with open("Data/users.csv", mode="r") as file:
@@ -34,9 +35,9 @@ def display_menu_as_user():
     print("3. Logout")
     user_choice = input("Enter your choice (1-3): ")
     if user_choice == '1':
-        display_movies
+        display_movies()
     elif user_choice == '2':
-        search_movies()
+        search_movie() 
     else:
         print("Logging out...")
         return
