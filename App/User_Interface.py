@@ -4,7 +4,7 @@ from Menu import (
     display_menu_as_guest,
     validate_user
 )
-def Login():
+def User_Interface():
     print("Welcome to the Movie Success Prediction App!")
 
     while True:
