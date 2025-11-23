@@ -19,15 +19,15 @@ def User_Interface():
             username = input("Enter username: ")
             password = input("Enter password: ")
 
-            role = validate_user(username, password)
+            current_user = validate_user(username, password)
 
-            if role == 1:
+            if current_user['role'] == 1:
                 print("\nLogin successful! Welcome Staff.")
-                display_menu_as_staff()
+                display_menu_as_staff(current_user)
 
-            elif role == 2:
+            elif current_user['role'] == 2:
                 print("\nLogin successful! Welcome User.")
-                display_menu_as_user()
+                display_menu_as_user(current_user)
 
             else:
                 print("\nInvalid username or password. Try again.")
