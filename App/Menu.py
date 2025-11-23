@@ -21,19 +21,19 @@ def validate_user(username, password):
 
 def display_menu_as_staff(current_user):
     print("\nStaff Menu:")
-    print("1. Add Movie")
+    print("1. Profile")
     print("2. View Movie List")
-    print("3. Profile")
+    print("3. Add Movie")
     print("4. Logout")
     staff_choice = input("Enter your choice (1-3): ")
     if staff_choice == '1':
-        add_movie()
-        display_menu_as_staff(current_user)
+        Profile(current_user)
+        display_menu_as_staff(current_user) 
     elif staff_choice == '2':
         display_movies()
         display_menu_as_staff(current_user)
     elif staff_choice == '3':
-        Profile(current_user)
+        add_movie()
         display_menu_as_staff(current_user)
     else:
         print("Logging out...")
@@ -41,19 +41,19 @@ def display_menu_as_staff(current_user):
     
 def display_menu_as_user(current_user):
     print("\nUser Menu:")
-    print("1. View Movies List")
+    print("1. Profile")
     print("2. Search Movies")
-    print("3. Profile")
+    print("3. View Movies List")
     print("4. Logout")
     user_choice = input("Enter your choice (1-3): ")
     if user_choice == '1':
-        display_movies()
+        Profile(current_user)
         display_menu_as_user(current_user)
     elif user_choice == '2':
         search_movie() 
         display_menu_as_user(current_user)
     elif user_choice == '3':
-        Profile(current_user)
+        display_movies()
         display_menu_as_user(current_user)
     else:
         print("Logging out...")
