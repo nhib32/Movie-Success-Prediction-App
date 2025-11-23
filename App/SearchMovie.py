@@ -4,7 +4,7 @@ import os
 
 csv_file = "Data/Predicted.csv"
 
-def search_movie():
+def search_movie(role):
     print('.\nEnter movie title:')
     title = input("Title: ")
 
@@ -16,7 +16,6 @@ def search_movie():
     # Read CSV using pandas
     df = pd.read_csv(csv_file)
 
-
     movie = df[df['title'].str.lower() == title.lower()]
 
     if not movie.empty:
@@ -24,3 +23,6 @@ def search_movie():
         print(movie.to_string(index=False))
     else:
         print("\nMovie not found.")
+
+    if role == 2 and not movie.empty:
+        print("Do you want to buy the ticket for this movie?")

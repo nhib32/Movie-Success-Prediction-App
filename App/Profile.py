@@ -3,7 +3,7 @@ import csv
 def edit_profile(user, csv_path="Data/Users.csv"):
     print("\n=== Edit Profile ===")
     print("Press Enter to keep the current value.\n")
-    
+
     new_first_name = input(f"First Name ({user['first_name']}): ") or user['first_name']
     new_last_name = input(f"Last Name ({user['last_name']}): ") or user['last_name']
     new_password = input(f"Password ({user['password']}): ") or user['password']

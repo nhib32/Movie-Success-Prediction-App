@@ -23,9 +23,10 @@ def display_menu_as_staff(current_user):
     print("\nStaff Menu:")
     print("1. Profile")
     print("2. View Movie List")
-    print("3. Add Movie")
-    print("4. Logout")
-    staff_choice = input("Enter your choice (1-3): ")
+    print("3. Search Movies")
+    print("4. Add Movie")
+    print("5. Logout")
+    staff_choice = input("Enter your choice (1-5): ")
     if staff_choice == '1':
         Profile(current_user)
         display_menu_as_staff(current_user) 
@@ -33,6 +34,9 @@ def display_menu_as_staff(current_user):
         display_movies()
         display_menu_as_staff(current_user)
     elif staff_choice == '3':
+        search_movie(current_user['role']) 
+        display_menu_as_staff(current_user)
+    elif staff_choice == '4':
         add_movie()
         display_menu_as_staff(current_user)
     else:
@@ -45,12 +49,12 @@ def display_menu_as_user(current_user):
     print("2. Search Movies")
     print("3. View Movies List")
     print("4. Logout")
-    user_choice = input("Enter your choice (1-3): ")
+    user_choice = input("Enter your choice (1-4): ")
     if user_choice == '1':
         Profile(current_user)
         display_menu_as_user(current_user)
     elif user_choice == '2':
-        search_movie() 
+        search_movie(current_user['role']) 
         display_menu_as_user(current_user)
     elif user_choice == '3':
         display_movies()
@@ -62,10 +66,14 @@ def display_menu_as_user(current_user):
 def display_menu_as_guest():
     print("\nGuest Menu:")
     print("1. View Movies List")
-    print("2. Exit")
+    print("2. Search Movies")
+    print("3. Exit")
     guest_choice = input("Enter your choice (1-2): ")
     if guest_choice == '1':
         display_movies()
+    elif guest_choice == '2':
+        search_movie(0) 
+        display_menu_as_guest()
     else:
         print("Exiting the application. Goodbye!")
         exit()
